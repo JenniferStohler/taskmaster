@@ -1,6 +1,6 @@
 import { ProxyState } from "../AppState.js";
-import { ListService } from "../Services/ListService.js";
-//import { loadState } from "../Utils/LocalStorage.js";
+import { listsService } from "../Services/ListService.js";
+import { loadState } from "../Utils/LocalStorage.js";
 
 
 //Private
@@ -10,7 +10,7 @@ function _draw() {
   if (lists.length == 0) {
     template += '<div class="col text-center"><p><em>no lists</em><p></div>'
   }
-  lists.forEach(l => template += l.Template)
+  lists.forEach(li => template += li.Template)
   document.getElementById("lists").innerHTML = template
 }
 
@@ -19,7 +19,7 @@ export default class ListController {
   constructor() {
     ProxyState.on("lists", _draw);
     ProxyState.on("tasks", _draw);
-    //loadState()
+    loadState()
     _draw()
   }
 
@@ -28,14 +28,13 @@ export default class ListController {
     let form = window.event.target
     let rawList = {
       name: form['name'].value
-     
     }
-    ListService.addList(rawList)
+    listsService.addList(rawList)
     // @ts-ignore
     form.reset()
   }
 
   deleteList(id) {
-    ListService.deleteList(id)
+    listsService.deleteList(id)
   }
 }

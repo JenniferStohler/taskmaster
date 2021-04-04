@@ -8,7 +8,6 @@ export default class Task {
   }
 
   get Template() {
-
-    return `<li>${this.name}</li> `
+    return `<li>${this.name} <i class="fas fa-times ml-2 text-danger" onclick="app.tasksController.deleteTask('${this.id}')"></i></li>`
   }
 }

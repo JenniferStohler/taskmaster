@@ -1,9 +1,10 @@
-import TaskController from "../app/Controllers/TaskController.js";
-import ListController from "../app/Controllers/ListController.js"; 
+  
+import IngredientsController from "./Controllers/IngredientsController.js";
+import PizzasController from "./Controllers/PizzasController.js";
 
 class App {
-  taskController = new TaskController();
-  listController = new ListController();
+  pizzasController = new PizzasController();
+  ingredientsController = new IngredientsController();
 }
 
 window["app"] = new App();

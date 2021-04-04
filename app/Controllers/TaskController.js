@@ -1,8 +1,9 @@
 
-import { taskService } from "../Services/TaskService.js";
-//import { loadState } from "../Utils/LocalStorage.js"
+  
+import { tasksService } from "../Services/TaskService.js";
 
 
+//Public
 export default class TaskController {
 
   addTask(listId) {
@@ -11,16 +12,15 @@ export default class TaskController {
     let rawTask = {
       name: form['name'].value,
       listId: listId
+    }
+    tasksService.addTask(rawTask)
+    // @ts-ignore
+    form.reset()
   }
-  
-taskService.addTask(rawTask)
-    console.log("newTask",rawTask)
-  form.reset()
 
-}
-
-deleteTask(id){
-  taskService.deleteTask(id)
-}
+  deleteTask(id) {
+    debugger
+    tasksService.deleteTask(id)
+  }
 
 }

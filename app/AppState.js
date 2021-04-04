@@ -1,12 +1,16 @@
-import List from "./Models/List.js"
+import Ingredient from "./Models/Ingredient.js"
+import Pizza from "./Models/Pizza.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
-  /** @type {List[]} */
-  lists = []
-  /** @type {Task[]} */
-  tasks = []
+
+  /** @type {Pizza[]} */
+  pizzas = []
+
+  /** @type {Ingredient[]} */
+  ingredients = []
+
 }
 
 export const ProxyState = new Proxy(new AppState(), {
