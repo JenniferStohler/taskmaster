@@ -1,9 +1,9 @@
 
 import { ProxyState } from "../AppState.js";
-import Ingredient from "../Models/Task.js";
+import Task from "../Models/Task.js";
 import { saveState } from "../Utils/LocalStorage.js";
 
-class TaskService {
+class TasksService {
   deleteTask(id) {
     ProxyState.tasks = ProxyState.tasks.filter(t => t.id != id)
     saveState()
@@ -16,4 +16,4 @@ class TaskService {
   }
 }
 
-export const tasksService = new TaskService();
+export const tasksService = new TasksService();

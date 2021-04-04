@@ -1,10 +1,10 @@
 
   
-import { tasksService } from "../Services/TaskService.js";
+import { tasksService } from "../Services/TasksService.js";
 
 
 //Public
-export default class TaskController {
+export default class TasksController {
 
   addTask(listId) {
     window.event.preventDefault()

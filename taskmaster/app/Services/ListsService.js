@@ -1,8 +1,8 @@
 import { ProxyState } from "../AppState.js";
-import Pizza from "../Models/List.js";
+import List from "../Models/List.js";
 import { saveState } from "../Utils/LocalStorage.js";
 
-class ListService {
+class ListsService {
   deleteList(id) {
     ProxyState.lists = ProxyState.lists.filter(li => li.id != id)
     saveState()
@@ -13,4 +13,5 @@ class ListService {
   }
 }
 
-export const listsService = new ListService();
+
+export const listsService = new ListsService();
